@@ -43,4 +43,3 @@ For our demonstration, we trained the model to differentiate between different p
 <img width="1920" height="1080" alt="Coral AI Accel" src="https://github.com/user-attachments/assets/b453dbe2-a9a8-4f50-b0a9-51ec7053539e" />
 
 
-This project showcases an efficient and accessible way to integrate machine learning with robotics, creating a practical and secure automated access system.
