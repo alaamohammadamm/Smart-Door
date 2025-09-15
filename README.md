@@ -1,37 +1,41 @@
-# Smart Door: A STEM Education Project 🚪
+# Smart Door: An Automated Access System 🚪
 
-This project, developed for the **NSF-funded iTest SmartCT program**, serves as a demonstration tool to teach **K-12 students** about the power and practical applications of **machine learning**. It's an automated access system that uses a computer vision model to open a door only for authorized users. 
+This project, developed for the NSF-funded iTest SmartCT program, details a **smart door** that uses a **machine learning model** to grant access only to authorized users. The system identifies authorized individuals or pets in real-time and automatically opens the door for them. 
 
-***
+---
 
 ## 🛠️ Hardware & Components
 
-The system is built on a **4GB Raspberry Pi 4** and uses several key components to function:
+The core of the system is a **4GB Raspberry Pi 4**, which processes the camera's input and controls the door's movement. The mechanical components include:
 
-* **NEMA 17 Stepper Motor:** Controls the precise movement of the door.
-* **DRV8825 Stepper Motor Driver Chip:** An interface that allows the Raspberry Pi to control the motor.
-* **Raspberry Pi V2 Camera:** Captures live video footage for the machine learning model.
-* **3D-Printed Structural Components:** The frame and the **pinion and rack movement system** were all custom-designed and printed.
+* **NEMA 17 Stepper Motor:** Provides precise and controlled movement for the door.
+* **DRV8825 Stepper Motor Driver Chip:** Manages the stepper motor, allowing the Raspberry Pi to control its speed and direction.
+* **Raspberry Pi V2 Camera:** Captures the live video feed for the machine learning model.
+* **3D-Printed Structural Components:** All the physical parts, including the **pinion and rack movement system**, were designed and printed in-house.
 
-***
+---
 
-## 💻 How It Teaches Machine Learning
+## 💻 Machine Learning Model
 
-The core educational component is the machine learning model, created using **Google Teachable Machine**. This platform simplifies the process of training a model for students. The model is trained to classify images into three categories:
+The machine learning model was developed using **Google Teachable Machine**, a user-friendly web-based tool for creating custom machine learning models. The model is trained to classify live images from the camera into one of three categories:
 
-* **Authorized:** Allows access.
-* **Unauthorized:** Denies access.
-* **Background:** No person or animal is present.
+1.  **Authorized:** The model recognizes a person or pet with access.
+2.  **Unauthorized:** The model identifies a person or pet without access.
+3.  **Background:** The model detects no person or pet in front of the door.
 
-For the classroom demonstration, the model is trained to identify and grant access to a specific plush toy, illustrating how an AI can be trained to recognize patterns and make decisions based on data.
+For our demonstration, we trained the model to differentiate between different plush toys, with one "pet" being designated as authorized to show the system's functionality.
 
-***
+---
 
-## ⚙️ The System in Action
+## ⚙️ How It Works
 
-1.  The Raspberry Pi's camera continuously feeds images to the machine learning model.
-2.  The model classifies the image.
-3.  If an **"Authorized"** subject is detected, the Raspberry Pi signals the motor to open the door for **5 seconds**.
-4.  The door then closes automatically, completing the cycle.
+1.  The Raspberry Pi continuously receives a live image feed from the camera.
+2.  This image is fed into the machine learning model.
+3.  If the model classifies the image as **"Authorized,"** it sends a signal to the DRV8825 driver chip.
+4.  The driver chip activates the NEMA 17 stepper motor, which, through the pinion and rack system, opens the door.
+5.  After **5 seconds**, the system automatically commands the stepper motor to close the door.
+6.  If the model detects an "Unauthorized" person or "Background," no action is taken.
 
-This hands-on project allows students to see the concepts of artificial intelligence and robotics come to life, from data collection and model training to physical automation.
+---
+
+This project showcases an efficient and accessible way to integrate machine learning with robotics, creating a practical and secure automated access system.
