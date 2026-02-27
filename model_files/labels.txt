@@ -1,0 +1,3 @@
+0 brown dog
+1 white dog
+2 none
